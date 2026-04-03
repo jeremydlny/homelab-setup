@@ -1,12 +1,20 @@
 # Pi-hole
 
-DNS filtering server running on the NAS via Docker.
+DNS filtering and DHCP server running on the NAS via Docker with macvlan networking.
 
 ## Stack
 
 - Pi-hole v6 (Docker)
-- Quad9 (filtered, ECS, DNSSEC) as upstream DNS
-- HaGeZi Multi PRO blocklist
+- macvlan network — Pi-hole has its own IP on the local network
+- [Quad9](https://quad9.net/) (filtered, DNSSEC) as upstream DNS
+- [HaGeZi Multi PRO blocklist](https://github.com/hagezi/dns-blocklists)
+
+## Network
+
+- Pi-hole IP: `192.168.1.5`
+- DHCP range: `192.168.1.10` to `192.168.1.150`
+- Gateway: `192.168.1.1`
+- NAS interface: `eth1`
 
 ## Setup
 ```bash
@@ -16,10 +24,11 @@ docker-compose up -d
 
 ## Access
 
-Dashboard available at `http://NAS_IP:8080/admin`
+Dashboard available at `http://192.168.1.5/admin`
 
 ## Notes
 
-- DHCP managed by the router (Livebox 5)
-- DNS configured manually on each device
-- IPv6 disabled on upstream DNS to avoid connectivity issues
+- macvlan mode required for DHCP to work on TerramasterOS
+- DHCP managed by Pi-hole (disabled on router)
+- All devices on the network automatically use Pi-hole as DNS
+- NAS itself cannot access Pi-hole directly due to macvlan isolation
