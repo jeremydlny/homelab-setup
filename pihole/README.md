@@ -6,7 +6,7 @@ DNS filtering and DHCP server running on the NAS via Docker with macvlan network
 
 - Pi-hole v6 (Docker)
 - macvlan network — Pi-hole has its own IP on the local network
-- [Quad9](https://quad9.net/) (filtered, DNSSEC) as upstream DNS
+- [Quad9](https://quad9.net/) (filtered, ECS, DNSSEC) as upstream DNS
 - [HaGeZi Multi PRO blocklist](https://github.com/hagezi/dns-blocklists)
 
 ## Network
