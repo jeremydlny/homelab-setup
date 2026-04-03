@@ -5,7 +5,7 @@ DNS filtering server running on the NAS via Docker.
 ## Stack
 
 - Pi-hole v6 (Docker)
-- Quad9 (filtered, DNSSEC) as upstream DNS
+- Quad9 (filtered, ECS, DNSSEC) as upstream DNS
 - HaGeZi Multi PRO blocklist
 
 ## Setup
