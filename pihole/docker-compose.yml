@@ -17,6 +17,16 @@ services:
       - SYS_NICE
     restart: unless-stopped
 
+  unbound:
+    image: mvance/unbound:latest
+    container_name: unbound
+    restart: unless-stopped
+    networks:
+      macvlan_net:
+        ipv4_address: 192.168.1.6
+    volumes:
+      - './unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf'
+      
 networks:
   macvlan_net:
     driver: macvlan
@@ -26,4 +36,4 @@ networks:
       config:
         - subnet: 192.168.1.0/24
           gateway: 192.168.1.1
-          ip_range: 192.168.1.5/32
+          ip_range: 192.168.1.4/31
