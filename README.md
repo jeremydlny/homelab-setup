@@ -16,3 +16,7 @@ Documentation of my personal home lab, built for learning cybersecurity concepts
 - Learn network monitoring and DNS filtering
 - Document hands-on cybersecurity practice
 - Build toward a SOC analyst skill set
+  
+## Author
+
+Created by [Jeremy Delannoy](https://github.com/jeremydlny)
